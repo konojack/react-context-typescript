@@ -19,9 +19,9 @@ const Application = () => {
 
   return (
     <main style={{ borderColor: toRGB(rgb), ...darkTheme }}>
-      <ColorSwatch {...rgb} />
+      <ColorSwatch />
       <ColorInputs {...rgb} />
-      <ColorSliders {...rgb} />
+      <ColorSliders />
     </main>
   );
 };
