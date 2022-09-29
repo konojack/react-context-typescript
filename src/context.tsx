@@ -1,1 +1,27 @@
 import * as React from 'react';
+
+import { RGBColorType } from './types';
+import { AdjustmentAction, reducer } from './reducer';
+
+interface RGBContextType extends RGBColorType {
+  dispatch: React.Dispatch<AdjustmentAction>;
+}
+
+export const RGBContext = React.createContext<RGBContextType>(null);
+
+export const RGBContextProvider = ({
+  children
+}: {
+  children: React.ReactNode;
+}) => {
+  const [rgb, dispatch] = React.useReducer(reducer, {
+    red: 0,
+    green: 0,
+    blue: 0
+  });
+  return (
+    <RGBContext.Provider value={{ ...rgb, dispatch }}>
+      {children}
+    </RGBContext.Provider>
+  );
+};
