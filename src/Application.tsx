@@ -1,7 +1,6 @@
 import * as React from 'react';
 
 import { ColorSwatch } from './ColorSwatch';
-import { ColorInputs } from './ColorInputs';
 import { ColorAdjustment } from './ColorAdjustment';
 import { ColorSlider } from './ColorSlider';
 
@@ -9,6 +8,7 @@ import { toRGB } from './utilities';
 import { reducer } from './reducer';
 import { ThemeContext } from './theme-context';
 import { RGBContext } from './context';
+import { ColorInput } from './ColorInput';
 
 const Application = () => {
   const { light: lightTheme, dark: darkTheme } = React.useContext(ThemeContext);
@@ -23,7 +23,7 @@ const Application = () => {
   return (
     <main style={{ borderColor: toRGB(rgbObject), ...darkTheme }}>
       <ColorSwatch />
-      <ColorInputs />
+      <ColorAdjustment Adjustment={ColorInput} />
       <ColorAdjustment Adjustment={ColorSlider} />
     </main>
   );
