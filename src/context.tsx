@@ -7,7 +7,9 @@ interface RGBContextType extends RGBColorType {
   dispatch: React.Dispatch<AdjustmentAction>;
 }
 
-export const RGBContext = React.createContext<RGBContextType>(null);
+export const RGBContext = React.createContext<RGBContextType>(
+  {} as RGBContextType
+);
 
 export const RGBContextProvider = ({
   children
